@@ -26,7 +26,7 @@ host name| ip address
 EOF_LISTHEAD
 
 sqlite3 /var/tmp/dhcpdata.db >> $WORKDIR/README.md <<EOF_SQL
-select hostname, ipaddr from maclist;
+select hostname, ipaddr from maclist order by hostname;
 EOF_SQL
 
 cd $WORKDIR
