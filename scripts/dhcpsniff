@@ -29,6 +29,9 @@ tcpdump -i $NETWORKDEVICE -n port 67 and port 68 -v -l | (
        		if [ "$IPADDR" == "" ];then
        		     IPADDR=`echo $aline | grep 'Your-IP' | sed -e 's/[ 	]*Your-IP[ 	]*//'`
         	fi
+                if [ "$IPADDR" == "" ];then
+                     IPADDR=`echo $aline | grep 'Requested-IP' | sed -e 's/[    ]*Requested-IP[^:]*: //'`
+                fi
         	if [ "$ETHADDR" == "" ];then
         	    ETHADDR=`echo $aline | grep 'Client-Ethernet-Address' | sed -e 's/^[       ]*//' | cut -f 2 -d' ' | sed -e 's/://g' | awk '{print toupper($1)}'`
         	fi
