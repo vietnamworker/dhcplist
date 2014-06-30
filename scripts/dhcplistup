@@ -1,8 +1,8 @@
 #!/bin/sh
 # do not use this script in this form, 
 # change (especially about authentication part) for meet your requirement..
-git_user_name=
-git_password=
+git_user_name=$1
+git_password=$2
 GITHUB=https://${git_user_name}:${git_password}@github.com/vietnamworker/dhcplist.git
 WORKDIR=$HOME/work/dhcplistup
 
